@@ -1,10 +1,9 @@
 [build]
   publish = "build/web"
-  command = "flutter build web --release"
+  command = "./build.sh"
 
 [build.environment]
-  # Use Flutter stable channel
-  FLUTTER_ROOT = "/opt/flutter"
+  # Flutter web build
   FLUTTER_WEB = "true"
 
 [[redirects]]
