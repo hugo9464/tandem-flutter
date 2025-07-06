@@ -1,0 +1,77 @@
+# Configuration Supabase pour le projet Tandem Flutter
+
+[api]
+# Port pour l'API Supabase local
+port = 54321
+# Schémas à exposer
+schemas = ["public", "storage", "graphql_public"]
+# Configuration additionnelle
+extra_search_path = ["public", "extensions"]
+# Taille maximum de la requête en bytes
+max_rows = 1000
+
+[db]
+# Port pour PostgreSQL
+port = 54322
+# Nom de la base de données
+name = "postgres"
+# Version PostgreSQL
+major_version = 15
+
+[studio]
+# Port pour Supabase Studio
+port = 54323
+# Activer le mode API local
+api_url = "http://localhost:54321"
+
+[inbucket]
+# Port pour les emails (service de test)
+port = 54324
+# Activer les emails
+enabled = true
+smtp_port = 54325
+pop3_port = 54326
+
+[storage]
+# Configuration du stockage de fichiers
+enabled = true
+# Taille maximum des fichiers (50MB)
+file_size_limit = "50MiB"
+# Types de fichiers autorisés
+allowed_mime_types = ["image/jpeg", "image/png", "image/gif", "image/webp", "video/mp4", "application/pdf"]
+
+[auth]
+# Configuration de l'authentification
+enabled = true
+# URL du site
+site_url = "http://localhost:3000"
+# URLs de redirection autorisées
+additional_redirect_urls = ["https://localhost:3000"]
+# JWT expiration (en secondes) - 1 semaine
+jwt_expiry = 604800
+# Activer la confirmation d'email
+enable_confirmations = false
+# Activer la récupération de mot de passe
+enable_recoveries = true
+# Activer l'inscription
+enable_signup = true
+
+[auth.email]
+# Configuration des emails d'authentification
+enable_signup = true
+double_confirm_email = false
+enable_confirmations = false
+
+[edge_functions]
+# Configuration des Edge Functions
+enabled = true
+# Région par défaut
+region = "eu-west-3"
+# Variables d'environnement pour les fonctions
+[edge_functions.env]
+BANCO_SURF_API_BASE_URL = "https://banco.surf"
+BANCO_SURF_API_TOKEN = "d8cfa033-c4cb-47e1-bf4f-2a7974bbafba-850568df-aaa2-4622-8a24-3e4c5d530907"
+
+[analytics]
+# Configuration des analytics
+enabled = false
