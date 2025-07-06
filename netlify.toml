@@ -1,10 +1,6 @@
 [build]
   publish = "build/web"
-  command = "./build.sh"
-
-[build.environment]
-  # Flutter web build
-  FLUTTER_WEB = "true"
+  # No build command - deploying pre-built files
 
 [[redirects]]
   from = "/*"
