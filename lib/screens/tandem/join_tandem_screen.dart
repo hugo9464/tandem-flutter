@@ -59,9 +59,11 @@ class _JoinTandemScreenState extends State<JoinTandemScreen> {
         elevation: 0,
       ),
       body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.all(24.0),
-          child: _hasJoined ? _buildSuccessView() : _buildJoinForm(),
+        child: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.all(24.0),
+            child: _hasJoined ? _buildSuccessView() : _buildJoinForm(),
+          ),
         ),
       ),
     );
@@ -72,7 +74,7 @@ class _JoinTandemScreenState extends State<JoinTandemScreen> {
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        const Spacer(),
+        const SizedBox(height: 60),
         
         Icon(
           Icons.group_add,
@@ -177,7 +179,7 @@ class _JoinTandemScreenState extends State<JoinTandemScreen> {
           ),
         ),
         
-        const Spacer(flex: 2),
+        const SizedBox(height: 120),
       ],
     );
   }
@@ -187,7 +189,7 @@ class _JoinTandemScreenState extends State<JoinTandemScreen> {
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        const Spacer(),
+        const SizedBox(height: 60),
         
         Container(
           width: 80,
@@ -249,7 +251,7 @@ class _JoinTandemScreenState extends State<JoinTandemScreen> {
           ),
         ),
         
-        const Spacer(flex: 2),
+        const SizedBox(height: 120),
       ],
     );
   }

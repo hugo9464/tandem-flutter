@@ -73,11 +73,13 @@ class _CreateTandemScreenState extends State<CreateTandemScreen> {
         elevation: 0,
       ),
       body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.all(24.0),
-          child: _createdTandem == null
-              ? _buildCreateForm()
-              : _buildSuccessView(),
+        child: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.all(24.0),
+            child: _createdTandem == null
+                ? _buildCreateForm()
+                : _buildSuccessView(),
+          ),
         ),
       ),
     );
@@ -88,7 +90,7 @@ class _CreateTandemScreenState extends State<CreateTandemScreen> {
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        const Spacer(),
+        const SizedBox(height: 60),
         
         Icon(
           Icons.favorite,
@@ -177,7 +179,7 @@ class _CreateTandemScreenState extends State<CreateTandemScreen> {
           ),
         ),
         
-        const Spacer(flex: 2),
+        const SizedBox(height: 120),
       ],
     );
   }
@@ -187,7 +189,7 @@ class _CreateTandemScreenState extends State<CreateTandemScreen> {
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        const Spacer(),
+        const SizedBox(height: 60),
         
         Container(
           width: 80,
@@ -302,7 +304,7 @@ class _CreateTandemScreenState extends State<CreateTandemScreen> {
           ),
         ),
         
-        const Spacer(flex: 2),
+        const SizedBox(height: 120),
       ],
     );
   }

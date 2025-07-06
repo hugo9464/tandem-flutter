@@ -164,6 +164,66 @@ mcp__supabase__get_advisors type=security
 - Gérer les erreurs de manière appropriée sans exposer d'informations sensibles
 - WebView sécurisé pour l'authentification bancaire
 
+## Bonnes pratiques pour les formulaires Flutter
+
+### Gestion du clavier et visibilité des champs
+
+**RÈGLE ESSENTIELLE**: Tous les écrans contenant des TextFormField ou TextField doivent utiliser `SingleChildScrollView` pour éviter que les champs soient cachés par le clavier virtuel.
+
+#### Écrans corrigés pour la gestion du clavier :
+- ✅ `signup_screen.dart` - Utilise SingleChildScrollView
+- ✅ `login_screen.dart` - Utilise SingleChildScrollView  
+- ✅ `create_tandem_screen.dart` - Utilise SingleChildScrollView
+- ✅ `join_tandem_screen.dart` - Utilise SingleChildScrollView
+- ✅ `tandem_detail_screen.dart` - Utilise SingleChildScrollView dans la dialog
+- ✅ `bank_selection_screen.dart` - Structure Column + Expanded + ListView (OK)
+- ✅ `transactions_screen.dart` - Structure Column + Expanded + ListView (OK)
+
+#### Pattern à suivre pour les formulaires simples :
+```dart
+Scaffold(
+  body: SafeArea(
+    child: SingleChildScrollView(  // OBLIGATOIRE
+      child: Padding(
+        padding: const EdgeInsets.all(24.0),
+        child: Column(
+          children: [
+            const SizedBox(height: 60),  // Remplace Spacer
+            // Contenu du formulaire
+            const SizedBox(height: 120), // Remplace Spacer
+          ],
+        ),
+      ),
+    ),
+  ),
+)
+```
+
+#### Pattern pour écrans avec listes (recherche + ListView) :
+```dart
+Scaffold(
+  body: Column(
+    children: [
+      // Champ de recherche en position fixe
+      Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: TextField(...),
+      ),
+      // Liste scrollable
+      Expanded(
+        child: ListView.builder(...),
+      ),
+    ],
+  ),
+)
+```
+
+#### Points importants :
+- **Ne jamais utiliser `Spacer`** dans un `SingleChildScrollView`
+- **Remplacer par `SizedBox`** avec hauteur fixe
+- **Vérifier le comportement** sur petits écrans et en mode paysage
+- **Tester systématiquement** l'ouverture du clavier sur tous les champs
+
 ## Mise à jour de la documentation
 
 **IMPORTANT**: Lorsque des informations importantes pour le développement sont découvertes ou que des règles/conventions sont établies, elles doivent être ajoutées à ce fichier CLAUDE.md pour servir de référence future. Cela inclut :
