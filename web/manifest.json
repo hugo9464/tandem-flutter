@@ -1,13 +1,16 @@
 {
-    "name": "tandem_flutter",
-    "short_name": "tandem_flutter",
-    "start_url": ".",
+    "name": "Tandem - Gestion de Dépenses",
+    "short_name": "Tandem",
+    "start_url": "/",
     "display": "standalone",
-    "background_color": "#0175C2",
-    "theme_color": "#0175C2",
-    "description": "A new Flutter project.",
+    "background_color": "#FFFFFF",
+    "theme_color": "#6366F1",
+    "description": "Application de gestion de dépenses partagées avec intégration bancaire",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
+    "scope": "/",
+    "lang": "fr",
+    "categories": ["finance", "productivity"],
     "icons": [
         {
             "src": "icons/Icon-192.png",
